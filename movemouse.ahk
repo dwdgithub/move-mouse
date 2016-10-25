@@ -2,7 +2,7 @@
 ; Title: movemouse.ahk
 ; Author: DWD
 ; AHK Version: 1.1.24.0 (x64)
-; Script Version: 0.5
+; Script Version: 1.0
 ; Creation Date: 2016-07-29
 ; Last Update:   2016-10-25
 ;
@@ -17,7 +17,8 @@
 ;
 ;--------------------------------------------------------------------;
 ; Changelog:
-; 20XX-XX-XX: 
+; 2016-10-25:
+;  -Misc. formatting 
 ;--------------------------------------------------------------------;
 #SingleInstance force 
 #NoEnv  ;Recommended for performance and compatibility with future AutoHotkey releases. see: http://www.autohotkey.com/docs/commands/_NoEnv.htm
@@ -55,14 +56,14 @@ y:=0
 
 Loop
 {
-    ;toggle +1/-1 of x coordinate
-	if x = 1
-        x:= -1
-	else 
-        x:=1
+	;toggle +1/-1 of X-coordinate only
+	If x = 1
+		x:= -1
+	Else 
+		x:=1
 
-    MouseMove, x, y,,R  ;move mouse relative to current position
-    Sleep interval
+   MouseMove, x, y,,R  ;move mouse relative to current position
+   Sleep interval
 }
 
 Return
