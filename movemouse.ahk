@@ -1,10 +1,11 @@
-;--------------------------------------------------------------------
+;--------------------------------------------------------------------;
 ; Title: movemouse.ahk
 ; Author: DWD
 ; AHK Version: 1.1.24.0 (x64)
-; Script Version: 0.4
+; Script Version: 0.5
 ; Creation Date: 2016-07-29
 ; Last Update:   2016-10-25
+;
 ;
 ; Script Function:
 ; 1) This script moves the mouse every X seconds by +/- one pixel
@@ -14,19 +15,19 @@
 ;
 ; Notes: 
 ;
-;--------------------------------------------------------------------
+;--------------------------------------------------------------------;
 ; Changelog:
-; 2016-10-25:
-;  -Added comments and formatting clean-up 
-;--------------------------------------------------------------------
-#SingleInstance force ;
-#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases. see: http://www.autohotkey.com/docs/commands/_NoEnv.htm
-SendMode Input  ; Recommended for new scripts due to its superior speed and reliability. see: http://www.autohotkey.com/docs/commands/Send.htm#SendInput, http://www.autohotkey.com/docs/commands/SendMode.htm
-SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+; 20XX-XX-XX: 
+;--------------------------------------------------------------------;
+#SingleInstance force 
+#NoEnv  ;Recommended for performance and compatibility with future AutoHotkey releases. see: http://www.autohotkey.com/docs/commands/_NoEnv.htm
+SendMode Input  ;Recommended for new scripts due to its superior speed and reliability. see: http://www.autohotkey.com/docs/commands/Send.htm#SendInput, http://www.autohotkey.com/docs/commands/SendMode.htm
+SetWorkingDir %A_ScriptDir%  ;Ensures a consistent starting directory.
 
-;--------------------------------------------------------------------
+
+;--------------------------------------------------------------------;
 ;                  DEFINE KEYS FOR SCRIPT FUNCTIONS
-;--------------------------------------------------------------------
+;--------------------------------------------------------------------;
 ;define hotkey to quit the script
 Hotkey, ~^q, subQuitScript ;Ctrl-Q to quit the script
 
@@ -34,15 +35,15 @@ Hotkey, ~^q, subQuitScript ;Ctrl-Q to quit the script
 interval:=4000
 
 
+Return
+;--------------------------------------------------------------------;
+;                            SUBROUTINES
+;--------------------------------------------------------------------;
 
-;-------------------------------------------------------------------------------
-;                                  SUBROUTINES
-;-------------------------------------------------------------------------------
-
-;--------------------------------------------------------------------
+;--------------------------------------------------------------------;
 ; Subroutine: subMain
 ; Descr: Main subroutine of script
-;--------------------------------------------------------------------
+;--------------------------------------------------------------------;
 subMain:
 
 ;make mouse movement relative to screen instead of window
@@ -54,28 +55,28 @@ y:=0
 
 Loop
 {
-    ;toggle +1/-1 of (X) coordinate only
+    ;toggle +1/-1 of x coordinate
 	if x = 1
         x:= -1
 	else 
         x:=1
 
-    MouseMove, x, y,,R  ;move mouse relative to current positon
+    MouseMove, x, y,,R  ;move mouse relative to current position
     Sleep interval
 }
 
 Return
 
-;--------------------------------------------------------------------
+;--------------------------------------------------------------------;
 ; Subroutine: subQuitScript
 ; Descr: quit the script immediately
-;--------------------------------------------------------------------
+;--------------------------------------------------------------------;
 subQuitScript:
 ExitApp
 
-;--------------------------------------------------------------------
+;--------------------------------------------------------------------;
 ;                           END OF SCRIPT
-;--------------------------------------------------------------------
+;--------------------------------------------------------------------;
 
 
 
